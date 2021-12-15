@@ -9,7 +9,7 @@
 
 ### **_Description_**
 
-This is a Doctor’s Office website. You can see the doctors of the office and what they have accomplished. On this website, you can sign up as a patient. The form’s data will be stored in a patient database for later use. 
+This is a Doctor’s Office website. You can see the Doctor's of the office and what they have accomplished. On this website, you can sign up as a patient. The form’s data will be stored in a patient database for later use. 
 
 
 ---
