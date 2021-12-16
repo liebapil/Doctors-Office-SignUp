@@ -13,6 +13,9 @@ app.use(express.json());
 app.use(cors());
 app.use(express.urlencoded({ extended: false }));
 
+ app.use('/doctor', routing.doctor)
+ app.use('/patient', routing.patient)
+
 
 
 app.listen(PORT, () => console.log(`Server Listening on port: ${PORT}`));
