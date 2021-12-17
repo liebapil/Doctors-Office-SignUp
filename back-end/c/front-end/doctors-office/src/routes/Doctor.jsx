@@ -17,7 +17,17 @@ export default function Doctor() {
 
     return (
         <div className='container'>
-            
+            {doctors.map((props,index)=>{
+                return(
+                <Doctors
+                key={index}
+                name={props.name}
+                specialty={props.specialty}
+                description={props.description}
+                yearsOfPractice={props.yearsOfPractice}
+                imgUrl={props.imgUrl}
+                />)
+            })}       
         </div>
     )
 }
