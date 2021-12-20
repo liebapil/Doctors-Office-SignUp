@@ -51,7 +51,7 @@ export default function Form() {
 
 
     return (
-        <div>
+        <div className='form'>
             <form onSubmit={handleSubmit}>
                 <label htmlFor="firstName">First Name: </label>
                 <input name='firstName' onChange={handleFirstName} type='text' placeholder='First Name' value={firstName}/>
