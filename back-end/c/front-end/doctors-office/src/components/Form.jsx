@@ -13,6 +13,8 @@ export default function Form() {
     const [socialSecurity, setSocialSecurity]= useState('')
     const [submit, setSubmit] = useState(false);
     const [patient, setPatient]= useState([]);
+    const [patientDelete, setPatientDelete]= useState('')
+    const [patientUpdate, setPatientUpdate] = useState('')
 
     const handleFirstName = (e) => {
         setFirstName(e.target.value);
@@ -49,6 +51,7 @@ export default function Form() {
             socialSecurity: socialSecurity
         })
     }
+
     useEffect(()=>{
         const getpateint = async () =>{
             let patient = await axios.get('http://localhost:3001/patient')
@@ -57,7 +60,22 @@ export default function Form() {
         getpateint()
     },[])
 
+    const handleDelete= async(e)=>{
+        e.preventDefault() 
+        await axios.delete('http://localhost:3001/patient',{
+            patientDelete
+        }) 
+        setPatientDelete()
+    }
 
+
+    const handleUpdate= async(e)=>{
+        e.preventDefault() 
+        await axios.put('http://localhost:3001/patient',{
+            patientUpdate
+        }) 
+        setPatientUpdate()
+    }
 
     return (
         <div className='form'>
@@ -79,6 +97,8 @@ export default function Form() {
 
                 <button type='submit'>Submit</button>
             </form> 
+            <div className='render'>
+    
             {patient.map((props, index)=>{
                 return(
                     <Patientrender
@@ -89,8 +109,12 @@ export default function Form() {
                 gender= {props.gender}
                 ss= {props.socialSecurity}
                 id={props._id}
-                />
+                />   
             )})}
+            <button className='delete' onClick={handleDelete}>Delete</button>
+            <button className='edit' onClick={handleUpdate}>Edit</button>
+
+            </div>
             
         </div>
     )
