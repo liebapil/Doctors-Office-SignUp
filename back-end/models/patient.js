@@ -4,7 +4,7 @@ const PatientSchema = new Schema (
     {
         firstName:{ type: String, required: true},
         lastName: { type: String, required: true},
-        dateOfBirth: {type: Number, required: true},
+        dateOfBirth: {type: String, required: true},
         gender: {type: String, required: true},
         socialSecurity: { type: Number, required: true}
     },

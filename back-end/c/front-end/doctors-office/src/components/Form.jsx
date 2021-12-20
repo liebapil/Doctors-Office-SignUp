@@ -63,11 +63,8 @@ export default function Form() {
                 <input name='DOB' onChange={handleDOB} type='date' placeholder='Date Of Birth' value={DOB}/>
 
                 <label htmlFor="gender">Gender: </label>
-                <select name='gender' onChange={handleGender} type='text' placeholder='Gender' value={gender}> 
-                    <option>Male</option>
-                    <option>Female</option>
-                    <option>Unknown</option>
-                </select>
+                <input name='gender' onChange={handleGender} type='text' placeholder='Gender' value={gender} />
+                
                 <label htmlFor="SS">Social Security: </label>
                 <input name='SS' onChange={handleSocialSecurity} type='number' placeholder='Social Security'/>
 
