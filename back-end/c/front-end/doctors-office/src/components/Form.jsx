@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
+import Patientrender from './patientrender'
 
 
 //// the same with this page looks similar since a lot of it is the same sytax 
@@ -78,6 +79,18 @@ export default function Form() {
 
                 <button type='submit'>Submit</button>
             </form> 
+            {patient.map((props, index)=>{
+                return(
+                    <Patientrender
+                    key = {index}
+                firstName= {props.firstName}
+                lastName ={props.lastName}
+                dob= {props.dateOfBirth}
+                gender= {props.gender}
+                ss= {props.socialSecurity}
+                id={props._id}
+                />
+            )})}
             
         </div>
     )
