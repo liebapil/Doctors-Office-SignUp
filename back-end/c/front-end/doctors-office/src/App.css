@@ -11,6 +11,13 @@
   justify-content: space-between;
 }
 
+html,
+body,
+#root,
+.App{
+min-height: 100%;
+}
+
 .doctor{
   display: flex;
   gap: 30px;
