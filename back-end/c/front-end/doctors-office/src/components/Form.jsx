@@ -45,22 +45,32 @@ export default function Form() {
             dateOfBirth: DOB,
             gender: gender,
             socialSecurity: socialSecurity
-        })}
+        })
+    }
 
 
 
     return (
         <div>
             <form onSubmit={handleSubmit}>
-                <input onChange={handleFirstName} type='text' placeholder='First Name' value={firstName}>First Name:</input>
-                <input onChange={handleLastName} type='text' placeholder='Last Name' value={lastName}>Last Name:</input>
-                <input onChange={handleDOB} type='date' placeholder='Date Of Birth' value={DOB}>Date Of Birth:</input>
-                <select onChange={handleGender} type='text' placeholder='Gender' value={gender}> Gender:
+                <label htmlFor="firstName">First Name: </label>
+                <input name='firstName' onChange={handleFirstName} type='text' placeholder='First Name' value={firstName}/>
+
+                <label htmlFor="lastName">Last Name: </label>
+                <input name='lastName' onChange={handleLastName} type='text' placeholder='Last Name' value={lastName}/>
+
+                <label htmlFor="DOB">Date Of Birth: </label>
+                <input name='DOB' onChange={handleDOB} type='date' placeholder='Date Of Birth' value={DOB}/>
+
+                <label htmlFor="gender">Gender: </label>
+                <select name='gender' onChange={handleGender} type='text' placeholder='Gender' value={gender}> 
                     <option>Male</option>
                     <option>Female</option>
                     <option>Unknown</option>
                 </select>
-                <input onChange={handleSocialSecurity} type='number' placeholder='Social Security'>Social Security:</input>
+                <label htmlFor="SS">Social Security: </label>
+                <input name='SS' onChange={handleSocialSecurity} type='number' placeholder='Social Security'/>
+
                 <button type='submit'>Submit</button>
             </form>   
         </div>

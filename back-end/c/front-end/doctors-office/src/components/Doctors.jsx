@@ -7,8 +7,10 @@ export default function Doctors(props) {
         <div className='description'>
             <h2>Doctor: {props.name}</h2>
             <h3>Specialty: {props.specialty}</h3>
-            <p className='explantion'>About the Doctor: {props.description}</p>
-            <p className='years'>Years of Practice:{props.yearsOfPractice}</p>
+            <h3> About the Doctor:
+            <p className='explantion'>{props.description}</p>
+            </h3>
+            <p className='years'>Years of Practice: {props.yearsOfPractice}</p>
         </div>
             
         </div>
