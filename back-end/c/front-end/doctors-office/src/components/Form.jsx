@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 
 
@@ -11,6 +11,7 @@ export default function Form() {
     const [gender, setGender]= useState('')
     const [socialSecurity, setSocialSecurity]= useState('')
     const [submit, setSubmit] = useState(false);
+    const [patient, setPatient]= useState([]);
 
     const handleFirstName = (e) => {
         setFirstName(e.target.value);
@@ -47,6 +48,13 @@ export default function Form() {
             socialSecurity: socialSecurity
         })
     }
+    useEffect(()=>{
+        const getpateint = async () =>{
+            let patient = await axios.get('http://localhost:3001/patient')
+            setPatient(patient.data)
+        }
+        getpateint()
+    },[])
 
 
 
@@ -64,12 +72,13 @@ export default function Form() {
 
                 <label htmlFor="gender">Gender: </label>
                 <input name='gender' onChange={handleGender} type='text' placeholder='Gender' value={gender} />
-                
+
                 <label htmlFor="SS">Social Security: </label>
                 <input name='SS' onChange={handleSocialSecurity} type='number' placeholder='Social Security'/>
 
                 <button type='submit'>Submit</button>
-            </form>   
+            </form> 
+            
         </div>
     )
 }
