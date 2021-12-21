@@ -14,7 +14,7 @@ export default function Form() {
     const [submit, setSubmit] = useState(false);
     const [patient, setPatient]= useState([]);
     const [patientDelete, setPatientDelete]= useState('')
-    const [patientUpdate, setPatientUpdate] = useState('')
+  
 
     const handleFirstName = (e) => {
         setFirstName(e.target.value);
@@ -69,37 +69,60 @@ export default function Form() {
     }
 
 
-    const handleUpdate= async(e)=>{
-        e.preventDefault() 
-        await axios.put('http://localhost:3001/patient',{
-            patientUpdate
-        }) 
-        setPatientUpdate()
-    }
+    
 
     return (
         <div className='form'>
             <form onSubmit={handleSubmit}>
                 <label htmlFor="firstName">First Name: </label>
-                <input name='firstName' onChange={handleFirstName} type='text' placeholder='First Name' value={firstName}/>
+                <input 
+                name='firstName' 
+                onChange={handleFirstName} 
+                type='text' 
+                placeholder='First Name' 
+                value={firstName}
+                />
 
                 <label htmlFor="lastName">Last Name: </label>
-                <input name='lastName' onChange={handleLastName} type='text' placeholder='Last Name' value={lastName}/>
+                <input 
+                name='lastName' 
+                onChange={handleLastName} 
+                type='text' 
+                placeholder='Last Name' 
+                value={lastName}
+                />
 
                 <label htmlFor="DOB">Date Of Birth: </label>
-                <input name='DOB' onChange={handleDOB} type='date' placeholder='Date Of Birth' value={DOB}/>
+                <input 
+                name='DOB' 
+                onChange={handleDOB} 
+                type='date' 
+                placeholder='Date Of Birth' 
+                value={DOB}
+                />
 
                 <label htmlFor="gender">Gender: </label>
-                <input name='gender' onChange={handleGender} type='text' placeholder='Gender' value={gender} />
+                <input
+                name='gender' 
+                onChange={handleGender} 
+                type='text' 
+                placeholder='Gender' 
+                value={gender} 
+                />
 
                 <label htmlFor="SS">Social Security: </label>
-                <input name='SS' onChange={handleSocialSecurity} type='number' placeholder='Social Security'/>
+                <input 
+                name='SS' 
+                onChange={handleSocialSecurity} 
+                type='number' 
+                placeholder='Social Security' 
+                value={socialSecurity}/>
 
                 <button type='submit'>Submit</button>
             </form> 
             <div className='render'>
     
-            {patient.map((props, index)=>{
+            {patient.map((props, index)=>{                              
                 return(
                     <Patientrender
                     key = {index}
@@ -109,10 +132,10 @@ export default function Form() {
                 gender= {props.gender}
                 ss= {props.socialSecurity}
                 id={props._id}
-                />   
+                />
             )})}
             <button className='delete' onClick={handleDelete}>Delete</button>
-            <button className='edit' onClick={handleUpdate}>Edit</button>
+           
 
             </div>
             

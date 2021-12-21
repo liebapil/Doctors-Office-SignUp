@@ -5,6 +5,7 @@ import Doctor from './routes/Doctor';
 import Patient from './routes/Patient';
 import Home from './routes/Home';
 import Nav from './components/Nav';
+import PatientDetail from './components/PatientDetail';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
             <Route path="/doctor" element={<Doctor/>}/>
             <Route path="/patient" element={<Patient/>}/>
             <Route path="/contact" element={<Contact/>}/>
+            <Route path = "/patient/:id" element={<PatientDetail/>}/>
           </Routes>
        
     </div>
