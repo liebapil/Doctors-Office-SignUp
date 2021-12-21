@@ -7,15 +7,15 @@ import Patientrender from './patientrender'
 //// the same with this page looks similar since a lot of it is the same sytax 
 export default function Form() {
 
-    const [firstName, setFirstName]= useState('')
-    const [lastName, setLastName]= useState('')
-    const [DOB, setDOB]= useState('')
-    const [gender, setGender]= useState('')
-    const [socialSecurity, setSocialSecurity]= useState('')
+    const [firstName, setFirstName] = useState('')
+    const [lastName, setLastName] = useState('')
+    const [DOB, setDOB] = useState('')
+    const [gender, setGender] = useState('')
+    const [socialSecurity, setSocialSecurity] = useState('')
     const [submit, setSubmit] = useState(false);
-    const [patient, setPatient]= useState([]);
-    const [patientDelete, setPatientDelete]= useState('')
-  
+    const [patient, setPatient] = useState([]);
+   
+
 
     const handleFirstName = (e) => {
         setFirstName(e.target.value);
@@ -40,7 +40,7 @@ export default function Form() {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        if (submit === true){
+        if (submit === true) {
             return
         }
         setSubmit(true)
@@ -50,88 +50,85 @@ export default function Form() {
             dateOfBirth: DOB,
             gender: gender,
             socialSecurity: socialSecurity
-        }) 
+        })
         getpateint()
     }
 
-    const getpateint = async () =>{
+    const getpateint = async () => {
         let patient = await axios.get('http://localhost:3001/patient')
         setPatient(patient.data)
     }
 
-    useEffect(()=>{
-        
+    useEffect(() => {
+
         getpateint()
-    },[])
+    }, [])
 
     return (
         <div className='form'>
             <form onSubmit={handleSubmit}>
                 <label htmlFor="firstName">First Name: </label>
-                <input 
-                name='firstName' 
-                onChange={handleFirstName} 
-                type='text' 
-                placeholder='First Name' 
-                value={firstName}
+                <input
+                    name='firstName'
+                    onChange={handleFirstName}
+                    type='text'
+                    placeholder='First Name'
+                    value={firstName}
                 />
 
                 <label htmlFor="lastName">Last Name: </label>
-                <input 
-                name='lastName' 
-                onChange={handleLastName} 
-                type='text' 
-                placeholder='Last Name' 
-                value={lastName}
+                <input
+                    name='lastName'
+                    onChange={handleLastName}
+                    type='text'
+                    placeholder='Last Name'
+                    value={lastName}
                 />
 
                 <label htmlFor="DOB">Date Of Birth: </label>
-                <input 
-                name='DOB' 
-                onChange={handleDOB} 
-                type='date' 
-                placeholder='Date Of Birth' 
-                value={DOB}
+                <input
+                    name='DOB'
+                    onChange={handleDOB}
+                    type='date'
+                    placeholder='Date Of Birth'
+                    value={DOB}
                 />
 
                 <label htmlFor="gender">Gender: </label>
                 <input
-                name='gender' 
-                onChange={handleGender} 
-                type='text' 
-                placeholder='Gender' 
-                value={gender} 
+                    name='gender'
+                    onChange={handleGender}
+                    type='text'
+                    placeholder='Gender'
+                    value={gender}
                 />
 
                 <label htmlFor="SS">Social Security: </label>
-                <input 
-                name='SS' 
-                onChange={handleSocialSecurity} 
-                type='number' 
-                placeholder='Social Security' 
-                value={socialSecurity}/>
+                <input
+                    name='SS'
+                    onChange={handleSocialSecurity}
+                    type='number'
+                    placeholder='Social Security'
+                    value={socialSecurity} />
 
                 <button type='submit'>Submit</button>
-            </form> 
+            </form>
             <div className='render'>
-    
-            {patient.map((props, index)=>{                              
-                return(
-                    <Patientrender
-                    key = {index}
-                firstName= {props.firstName}
-                lastName ={props.lastName}
-                dob= {props.dateOfBirth}
-                gender= {props.gender}
-                ss= {props.socialSecurity}
-                id={props._id}
-                />
-            )})}
-            
-           
 
+                {patient.map((props, index) => {
+                    return (
+                        <Patientrender
+                            key={index}
+                            firstName={props.firstName}
+                            lastName={props.lastName}
+                            dob={props.dateOfBirth}
+                            gender={props.gender}
+                            ss={props.socialSecurity}
+                            id={props._id}
+                        />
+                    )
+                })}
             </div>
-            
         </div>
     )
 }
