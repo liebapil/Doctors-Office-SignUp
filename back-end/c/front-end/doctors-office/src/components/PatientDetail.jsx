@@ -34,9 +34,6 @@ export default function PatientDetail() {
 
     const handleUpdate= async(e)=>{
         e.preventDefault() 
-        if (update === true){
-            return
-        }
         setUpdate(true)
         await axios.put('http://localhost:3001/patient',{
             firstName: firstName,
@@ -49,10 +46,7 @@ export default function PatientDetail() {
 
 
     const handleSubmit = (e) => {
-        e.preventDefault()
-        if (showForm === true){
-            return
-        }
+        e.preventDefault()     
         toggleShowForm(true)}
 
     return (
