@@ -3,6 +3,7 @@ import axios from 'axios'
 import Patientrender from './patientrender'
 
 
+
 //// the same with this page looks similar since a lot of it is the same sytax 
 export default function Form() {
 
@@ -49,28 +50,24 @@ export default function Form() {
             dateOfBirth: DOB,
             gender: gender,
             socialSecurity: socialSecurity
-        })
+        }) 
+        getpateint()
+    }
+
+    const getpateint = async () =>{
+        let patient = await axios.get('http://localhost:3001/patient')
+        setPatient(patient.data)
     }
 
     useEffect(()=>{
-        const getpateint = async () =>{
-            let patient = await axios.get('http://localhost:3001/patient')
-            setPatient(patient.data)
-        }
+        
         getpateint()
     },[])
 
-    const handleDelete= async(e)=>{
-        e.preventDefault() 
-        await axios.delete('http://localhost:3001/patient',{
-            patientDelete
-        }) 
-        setPatientDelete()
-    }
-
-
     
 
+    
+    
     return (
         <div className='form'>
             <form onSubmit={handleSubmit}>
@@ -134,7 +131,7 @@ export default function Form() {
                 id={props._id}
                 />
             )})}
-            <button className='delete' onClick={handleDelete}>Delete</button>
+            
            
 
             </div>

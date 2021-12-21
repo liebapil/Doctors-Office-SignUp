@@ -7,7 +7,7 @@ const controller4 = require('../controllers/patientControllerUpdate')
 router.post('/', controller1.insertPatient)
 router.get('/', controller2.findPatients)
 router.get('/:id', controller2.findPatient)
-router.delete('/', controller3.deletePatient)
+router.delete('/:id', controller3.deletePatient)
 router.put('/', controller4.updatePatient)
 
 module.exports= router

@@ -8,46 +8,64 @@ import axios from "axios"
 
 export default function PatientDetail() {
 
-    const [patient, setPatient]= useState({})
-    const [showForm, toggleShowForm]=useState(false)
+    const [patient, setPatient] = useState({})
+    const [showForm, toggleShowForm] = useState(false)
     const [firstName, setFirstName] = useState(patient.firstName)
     const [lastName, setLastName] = useState(patient.lastName)
     const [DOB, setDOB] = useState(patient.dateOfBirth)
     const [gender, setGender] = useState(patient.gender)
     const [socialSecurity, setSocialSecurity] = useState(patient.socialSecurity)
-    const [update, setUpdate]=useState(false)
-    const {id}= useParams()
+    const [update, setUpdate] = useState(false)
+    const [patientDelete, setPatientDelete] = useState('')
+    const { id } = useParams()
 
 
-    useEffect(()=>{
-        const getpateint = async () =>{
-            let patient = await axios.get(`http://localhost:3001/patient/${id}`)
-            setPatient(patient.data)
-            setFirstName(patient.data.firstName)
-            setLastName(patient.data.lastName)
-            setDOB(patient.data.dateOfBirth)
-            setGender(patient.data.gender)
-            setSocialSecurity(patient.data.socialSecurity)
-        }
-        getpateint()
-    },[])
+    const getpatient = async () => {
+        let patient = await axios.get(`http://localhost:3001/patient/${id}`)
+        setPatient(patient.data)
+        setFirstName(patient.data.firstName)
+        setLastName(patient.data.lastName)
+        setDOB(patient.data.dateOfBirth)
+        setGender(patient.data.gender)
+        setSocialSecurity(patient.data.socialSecurity)
+    }
 
-    const handleUpdate= async(e)=>{
-        e.preventDefault() 
+    useEffect(() => {
+
+
+        getpatient()
+    }, [])
+
+    const handleUpdate = async (e) => {
+        e.preventDefault()
         setUpdate(true)
-        await axios.put('http://localhost:3001/patient',{
+        await axios.put(`http://localhost:3001/patient`, {
             firstName: firstName,
             lastName: lastName,
             dateOfBirth: DOB,
             gender: gender,
             socialSecurity: socialSecurity
-        })   
+        })
+        toggleShowForm(false)
+        getpatient()
+        
+    }
+
+    const handleDelete = async (e) => {
+        e.preventDefault()
+        await axios.delete(`http://localhost:3001/patient/${id}`
+
+        )
+        setPatientDelete()
+        getpatient()
     }
 
 
+
     const handleSubmit = (e) => {
-        e.preventDefault()     
-        toggleShowForm(true)}
+        e.preventDefault()
+        toggleShowForm(true)
+    }
 
     return (
         <div>
@@ -56,53 +74,56 @@ export default function PatientDetail() {
             <p>Date of Birth: {patient.dateOfBirth}</p>
             <p> Gender: {patient.gender}</p>
             <p>Social Security: {patient.socialSecurity}</p>
-            <p> By Id: {patient._id}</p> 
-            {showForm ? 
-            <form onClick={handleUpdate}>
-                <label htmlFor="firstName">First Name: </label>
-                <input 
-                name='firstName' 
-                onChange={(e)=>{setFirstName(e.target.value)}} 
-                type='text' 
-                placeholder='First Name' 
-                value={firstName}/>
+            <p> By Id: {patient._id}</p>
+            {showForm ?
+                <form onClick={handleUpdate}>
+                    <label htmlFor="firstName">First Name: </label>
+                    <input
+                        name='firstName'
+                        onChange={(e) => { setFirstName(e.target.value) }}
+                        type='text'
+                        placeholder='First Name'
+                        value={firstName} />
 
-                <label htmlFor="lastName">Last Name: </label>
-                <input 
-                name='lastName' 
-                onChange={(e)=>{setLastName(e.target.value)} }
-                type='text' 
-                placeholder='Last Name' 
-                value={lastName}/>
+                    <label htmlFor="lastName">Last Name: </label>
+                    <input
+                        name='lastName'
+                        onChange={(e) => { setLastName(e.target.value) }}
+                        type='text'
+                        placeholder='Last Name'
+                        value={lastName} />
 
-                <label htmlFor="DOB">Date Of Birth: </label>
-                <input name='DOB' 
-                onChange={(e)=>{setDOB(e.target.value)} }
-                type='date' 
-                placeholder='Date Of Birth' 
-                value={DOB}/>
+                    <label htmlFor="DOB">Date Of Birth: </label>
+                    <input name='DOB'
+                        onChange={(e) => { setDOB(e.target.value) }}
+                        type='date'
+                        placeholder='Date Of Birth'
+                        value={DOB} />
 
-                <label htmlFor="gender">Gender: </label>
-                <input name='gender' 
-                onChange={(e)=>{setGender(e.target.value)}} 
-                type='text' 
-                placeholder='Gender' 
-                value={gender} />
+                    <label htmlFor="gender">Gender: </label>
+                    <input name='gender'
+                        onChange={(e) => { setGender(e.target.value) }}
+                        type='text'
+                        placeholder='Gender'
+                        value={gender} />
 
-                <label htmlFor="SS">Social Security: </label>
-                <input name='SS' 
-                onChange={(e)=>{setSocialSecurity(e.target.value)}} 
-                type='number' 
-                placeholder='Social Security' 
-                value={socialSecurity}/>
+                    <label htmlFor="SS">Social Security: </label>
+                    <input name='SS'
+                        onChange={(e) => { setSocialSecurity(e.target.value) }}
+                        type='number'
+                        placeholder='Social Security'
+                        value={socialSecurity} />
 
-                <input type="submit" />
-        
-            </form>
-            : <button onClick={handleSubmit}>edit</button>
+                    <input type="submit" />
 
+                </form>
+                :
+                <div>
+                    <button onClick={handleSubmit}>edit</button>
+                    <button className='delete' onClick={handleDelete}>Delete</button>
+                </div>
             }
-           
+
         </div>
     )
 }
