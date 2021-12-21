@@ -64,10 +64,6 @@ export default function Form() {
         getpateint()
     },[])
 
-    
-
-    
-    
     return (
         <div className='form'>
             <form onSubmit={handleSubmit}>
