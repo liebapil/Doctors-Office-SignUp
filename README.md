@@ -34,7 +34,7 @@ This is a Doctor’s Office website. You can see the Doctor's of the office and 
 
 ### **_Screenshots_**
 
-
+![screenshot1](https://imgur.com/uUHfOzY.png)
 
 ### **_Future Updates_**
 

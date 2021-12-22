@@ -47,7 +47,7 @@ export default function PatientDetail() {
             socialSecurity: socialSecurity
         })
         getpatient()
-        //toggleShowForm(false)
+        //toggleShowForm(!showForm)
         
     }
 
