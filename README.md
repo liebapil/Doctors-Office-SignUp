@@ -36,6 +36,8 @@ This is a Doctor’s Office website. You can see the Doctor's of the office and 
 
 ![screenshot1](https://imgur.com/uUHfOzY.png)
 
+![screenshot2](https://imgur.com/eO86oli.png)
+
 ### **_Future Updates_**
 
 - [ ] Future updates to come
