@@ -46,8 +46,8 @@ export default function PatientDetail() {
             gender: gender,
             socialSecurity: socialSecurity
         })
-        toggleShowForm(false)
         getpatient()
+        //toggleShowForm(false)
         
     }
 
@@ -114,13 +114,13 @@ export default function PatientDetail() {
                         placeholder='Social Security'
                         value={socialSecurity} />
 
-                    <input type="submit" />
+                    <input className="submit-edit" type="submit" />
 
                 </form>
                 :
                 <div>
-                    <button onClick={handleSubmit}>edit</button>
-                    <button className='delete' onClick={handleDelete}>Delete</button>
+                    <button className="edit-button" onClick={handleSubmit}>edit</button>
+                    <button className='delete-button' onClick={handleDelete}>Delete</button>
                 </div>
             }
 

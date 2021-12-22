@@ -16,12 +16,10 @@ This is a Doctor’s Office website. You can see the Doctor's of the office and 
 
 ### **_Technologies Used_**
 
-- Git
-  - GitHub
+- GitHub
 - Terminal
 - VS Code
-  - MD Previewer
-- JS
+- JavaScript
 - HTML
 - CSS
 - MongoDB
@@ -33,15 +31,10 @@ This is a Doctor’s Office website. You can see the Doctor's of the office and 
 
 ---
 
-### **_Usage_**
-
-Usage comes later
-
----
 
 ### **_Screenshots_**
 
-Screenshots to come
+![Alt text](/Users/liebapil/ga_seir/unit2/project/Doctors-Office-SignUp/Screen-shots/Screen Shot 2021-12-22 at 6.19.10 AM.png)
 
 ### **_Future Updates_**
 
@@ -59,3 +52,12 @@ Organization:
 ---
 
 ### **_Credits_**
+
+- [Home page image](https://i.pinimg.com/originals/3f/dd/8d/3fdd8d0ae46fd4520cae854ff837afac.png)
+- [Doctor's image 1](https://ak.picdn.net/shutterstock/videos/4208335/thumb/9.jpg)
+- [Doctor's image 2](https://image.shutterstock.com/image-photo/hand-closeup-holding-stethoscope-portrait-260nw-1189195201.jpg)
+- [Doctor's image 3](https://i0.wp.com/newslexpoint.com/wp-content/uploads/2020/10/Motivation.jpg?fit=900%2C600&ssl=1)
+- [Doctor's image 4](https://www.seekpng.com/png/detail/322-3221067_health2-female-doctor-images-hd.png)
+- [Doctor's image 5](https://image.shutterstock.com/image-photo/portrait-handsome-smiling-doctor-260nw-256955077.jpg)
+- [Doctor's image 6](https://dermamedical.ae/wp-content/uploads/2016/05/Arabic-Doctor.jpg)
+- [Doctor's image 7](https://previews.123rf.com/images/antoniodiaz/antoniodiaz1801/antoniodiaz180100484/93257382-handsome-young-hispanic-doctor-showing-a-blank-medical-chart-and-smiling.jpg)
