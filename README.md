@@ -34,7 +34,7 @@ This is a Doctor’s Office website. You can see the Doctor's of the office and 
 
 ### **_Screenshots_**
 
-[Alt text](/Users/liebapil/ga_seir/unit2/project/Doctors-Office-SignUp/Screen-shots/Screen Shot 2021-12-22 at 6.19.10 AM.png)
+- [screenshot](Screen-shots/Screen Shot 2021-12-22 at 6.19.10 AM.png)
 
 ### **_Future Updates_**
 
