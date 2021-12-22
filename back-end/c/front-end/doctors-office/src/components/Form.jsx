@@ -44,7 +44,7 @@ export default function Form() {
             return
         }
         setSubmit(true)
-        await axios.post("http://localhost:3001/patient", {
+        await axios.post("/patient", {
             firstName: firstName,
             lastName: lastName,
             dateOfBirth: DOB,
@@ -55,7 +55,7 @@ export default function Form() {
     }
 
     const getpateint = async () => {
-        let patient = await axios.get('http://localhost:3001/patient')
+        let patient = await axios.get('/patient')
         setPatient(patient.data)
     }
 

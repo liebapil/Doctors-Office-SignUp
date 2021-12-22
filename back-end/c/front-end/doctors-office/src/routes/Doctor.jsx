@@ -9,7 +9,7 @@ export default function Doctor() {
 
     useEffect(()=>{
         const getDoctors = async () =>{
-            let doctor = await axios.get('http://localhost:3001/doctor')
+            let doctor = await axios.get('/doctor')
             setDoctors(doctor.data)
         }
         getDoctors()

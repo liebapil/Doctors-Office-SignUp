@@ -21,7 +21,7 @@ export default function PatientDetail() {
 
 
     const getpatient = async () => {
-        let patient = await axios.get(`http://localhost:3001/patient/${id}`)
+        let patient = await axios.get(`/patient/${id}`)
         setPatient(patient.data)
         setFirstName(patient.data.firstName)
         setLastName(patient.data.lastName)
@@ -39,7 +39,7 @@ export default function PatientDetail() {
     const handleUpdate = async (e) => {
         e.preventDefault()
         setUpdate(true)
-        await axios.put(`http://localhost:3001/patient`, {
+        await axios.put(`/patient`, {
             firstName: firstName,
             lastName: lastName,
             dateOfBirth: DOB,
@@ -53,7 +53,7 @@ export default function PatientDetail() {
 
     const handleDelete = async (e) => {
         e.preventDefault()
-        await axios.delete(`http://localhost:3001/patient/${id}`
+        await axios.delete(`/patient/${id}`
 
         )
         setPatientDelete()
