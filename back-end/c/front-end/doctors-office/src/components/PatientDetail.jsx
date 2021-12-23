@@ -62,7 +62,7 @@ export default function PatientDetail() {
 
 
 
-    const handleSubmit = (e) => {
+    const handleEdit = (e) => {
         e.preventDefault()
         toggleShowForm(true)
     }
@@ -119,7 +119,7 @@ export default function PatientDetail() {
                 </form>
                 :
                 <div>
-                    <button className="edit-button" onClick={handleSubmit}>edit</button>
+                    <button className="edit-button" onClick={handleEdit}>edit</button>
                     <button className='delete-button' onClick={handleDelete}>Delete</button>
                 </div>
             }
