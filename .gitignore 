@@ -2,7 +2,7 @@
 
 # dependencies
 /node_modules
-/c/front-end/doctors-office/node_modules
+
 /.pnp
 .pnp.js
 

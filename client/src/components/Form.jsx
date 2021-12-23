@@ -111,7 +111,7 @@ export default function Form() {
                     placeholder='Social Security'
                     value={socialSecurity} />
 
-                <button type='submit'>Submit</button>
+                <button className='form-button' type='submit'>Submit</button>
             </form>
             <div className='render'>
 
