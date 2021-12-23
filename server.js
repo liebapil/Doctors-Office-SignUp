@@ -3,6 +3,8 @@ const cors = require('cors');
 const routing = require('./routing');
 const db = require('./db');
 const path = require('path')
+const app = express();
+const PORT = process.env.PORT || 3001;
 
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
@@ -13,9 +15,9 @@ if (process.env.NODE_ENV === 'production') {
     })
   }
 
-const PORT = process.env.PORT || 3001;
 
-const app = express();
+
+
 
 app.use(express.json());
 app.use(cors());
