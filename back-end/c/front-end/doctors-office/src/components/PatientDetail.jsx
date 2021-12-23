@@ -47,8 +47,8 @@ export default function PatientDetail() {
             socialSecurity: socialSecurity
         })
         getpatient()
-        //toggleShowForm(!showForm)
-        
+        toggleShowForm(!showForm)
+           
     }
 
     const handleDelete = async (e) => {
@@ -76,7 +76,7 @@ export default function PatientDetail() {
             <p>Social Security: {patient.socialSecurity}</p>
             <p> By Id: {patient._id}</p>
             {showForm ?
-                <form onClick={handleUpdate}>
+                <form onSubmit={handleUpdate}>
                     <label htmlFor="firstName">First Name: </label>
                     <input
                         name='firstName'

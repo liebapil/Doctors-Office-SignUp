@@ -88,6 +88,10 @@ a{
   text-decoration: none;
 }
 
+a:hover{
+  background-color: rgb(172, 221, 223);
+}
+
 .home-page-text{
   display: flex;
   justify-content: center;
